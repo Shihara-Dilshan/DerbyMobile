@@ -8,7 +8,7 @@ class Database
         $this->conn = null;
 
         try {
-            $this->conn = new PDO("sqlite:" . __DIR__ . "/DB");
+            $this->conn = new PDO("sqlite:" . __DIR__ . "/../database/DB");
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $PDOE) {
             echo "Error while connecting to the database: " . $PDOE->getMessage();
