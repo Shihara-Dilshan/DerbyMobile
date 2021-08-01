@@ -1,15 +1,14 @@
 <?php
+    require_once(__DIR__ . '/../../service/userService.php');
+    
     $request = $_SERVER['REQUEST_METHOD'];
     $url = rawurldecode("$_SERVER[REQUEST_URI]");
     $BASE_URL = "/api/usercontroller";
 
+
     function signUp(){
         $data = json_decode(file_get_contents('php://input'), true);
-        echo json_encode(
-            array(
-                'message' => $data
-            )
-        );
+        echo signUpService($data);
     }
 
     function methodeNotSupported(){
