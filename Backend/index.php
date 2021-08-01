@@ -47,6 +47,6 @@ $myPDO = $DB->connect();
 
 echo json_encode(
     array(
-        'message' => $jwt
+        'message' => "$_SERVER[REQUEST_URI]"
     )
 );
