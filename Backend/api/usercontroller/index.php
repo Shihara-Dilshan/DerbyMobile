@@ -1,5 +1,8 @@
 <?php
 require_once(__DIR__ . '/../../service/userService.php');
+require_once(__DIR__ . '/../../middlewares/tokenValidateDecorater.php');
+require_once(__DIR__ . '/../../middlewares/validateToken.php');
+
 
 $request = $_SERVER['REQUEST_METHOD'];
 $url = rawurldecode("$_SERVER[REQUEST_URI]");
@@ -39,7 +42,9 @@ function invalidUrl($url)
 switch ($url) {
     case $BASE_URL . "/api/v2/user/signup":
         if ($request === "POST") {
-            signUp();
+            $headers = getallheaders();
+            $token = isset($headers['token']) ? $headers['token'] : null;
+            tokenValidateDecorater('validateToken', 'signUp', $token ,null);
         } else {
             methodeNotSupported();
         }
