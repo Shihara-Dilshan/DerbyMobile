@@ -34,7 +34,7 @@ function invalidUrl($url)
 {
     echo json_encode(
         array(
-            'message' => "zzzzzzzzzzzz" . $url
+            'message' => "Invalid url"
         )
     );
 }
