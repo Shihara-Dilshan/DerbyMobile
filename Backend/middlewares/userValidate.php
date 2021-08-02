@@ -1,7 +1,7 @@
 <?php
     require_once(__DIR__ . '/../model/User.php');
     
-    function userValidate($userData){
+    function userValidateSignUp($userData){
         try{
             $userName = $userData["userName"];
             $email = $userData["email"];
@@ -22,3 +22,21 @@
             return $user;
         }
     }
+
+    function userValidateLogin($userData){
+        try{
+            $email = $userData["email"];
+            $password = $userData["password"];
+        }catch(Exception $e){
+            return false;
+        }
+
+        if($email === null || strlen($email) < 3 ||
+           $password === null || strlen($password) < 3
+           ){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
