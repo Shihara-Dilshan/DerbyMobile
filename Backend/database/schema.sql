@@ -22,7 +22,8 @@ CREATE TABLE `food`(
 	`name`	VARCHAR ( 50 ) NOT NULL,
 	`description`	VARCHAR ( 50 ) NOT NULL,
 	`quantity`	INT NOT NULL CHECK(quantity > 0),
-	`Price`	REAL NOT NULL CHECK(Price > 0)
+	`Price`	REAL NOT NULL CHECK(Price > 0),
+	`image`	VARCHAR ( 256 ) NOT NULL
 );
 
 CREATE TABLE `foodOrders`(
