@@ -4,6 +4,8 @@ import {StatusBar} from 'react-native';
 import LoadingScreen from './src/screens/LoadingScreen';
 import HomeAppScreen from './src/screens/HomeAppScreen';
 
+import { BottomTabSelectedProvider } from './src/context/BottomTabSelectedContext';
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -14,8 +16,10 @@ const App = () => {
   });
   return (
     <>
+     <BottomTabSelectedProvider>
       <StatusBar backgroundColor="#00a538" />
       {isLoading ? <LoadingScreen /> : <HomeAppScreen />}
+    </BottomTabSelectedProvider>
     </>
   );
 };

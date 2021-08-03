@@ -11,56 +11,8 @@ import {
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
-
-function HomeScreen({ navigation }) {
-  const width = Dimensions.get("window").width;
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "white",
-      }}
-    >
-      <ScrollView>
-        <Text style={{ fontSize: 15, fontWeight: "bold", fontStyle: "normal", textAlign: 'center', paddingBottom: 20 }}>
-          Find your favourite foods
-        </Text>
-        <View
-          style={{
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "#e0e0e0",
-            borderRadius: 20,
-            width: width - 50,
-          }}
-        >
-          <TextInput
-            placeholder="Search"
-            onChangeText={(searchString) => {}}
-            underlineColorAndroid="transparent"
-            style={{
-              flex: 1,
-              paddingTop: 10,
-              paddingRight: 20,
-              paddingBottom: 10,
-              paddingLeft: 20,
-              color: "white",
-            }}
-          />
-          <Icon
-            style={{ padding: 10 }}
-            name="ios-search"
-            size={20}
-            color="#000"
-          />
-        </View>
-      </ScrollView>
-    </View>
-  );
-}
+import HomeScreen from "./HomeScreens/HomeScreen";
+import BottonTabScreen from "./ButtonTabScreen/BottonTabScreen";
 
 function NotificationsScreen({ navigation }) {
   return (
@@ -94,7 +46,7 @@ export default function HomeAppScreen() {
       >
         <Drawer.Screen
           options={{
-            title: "History",
+            title: "Home",
             headerTitle: "",
             headerTitleAlign: "center",
             headerRight: () => (
@@ -120,7 +72,7 @@ export default function HomeAppScreen() {
             ),
           }}
           name="Home"
-          component={HomeScreen}
+          component={BottonTabScreen}
         />
         <Drawer.Screen name="Notifications" component={NotificationsScreen} />
       </Drawer.Navigator>

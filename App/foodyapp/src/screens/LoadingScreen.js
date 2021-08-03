@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 const LoadingScreen = () => {
   return (
     <View style={styles.container}>
-      <Animatable.View animation="bounceInRight">
+      <Animatable.View animation="bounceInDown">
         <Image
           style={styles.logo}
           source={require("./../assets/images/logo2.png")}
